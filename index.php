@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Logowanie</title>
+
 </head>
 <body>
 
@@ -71,31 +79,32 @@ button {
 
 <div class="con">
 <form method="post">
+    <h1>Sign In</h1>
+    <label for="username">Login:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <button type="submit">Sign in</button>
+</form>
 </div>
 
 
-<?php
-    
 <?php    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        $usernameInput = $_POST["username"];
-        $passwordInput = $_POST["password"];
-
-      
-        if ($usernameInput === "admin" && $passwordInput === "test") {
-            $message = "Zalogowano prawidlowo";
-        if($_POST["username"] == "admin" && $_POST["password"] == "test")
+        if($_POST["username"] === "admin" && $_POST["password"] === "test")
         {
-            $message = "Zalogowano pomyślnie";
+            $message = "Login sucessful";
             echo "<script type='text/javascript'>alert('$message');</script>";
-        } 
-        else {
-            $message = "Błąd, wprowadzono złe dane";
         }
         else 
         {
-            $message = "Złe dane logowania";
+            $message = "Wrong login data";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
+?>
+
+</body>
+</html>
